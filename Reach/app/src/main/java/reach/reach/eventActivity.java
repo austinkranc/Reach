@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
@@ -16,6 +17,7 @@ public class eventActivity extends AppCompatActivity {
 
     private ListView eventListView;
     private ArrayAdapter<String> eventListAdapter;
+    private EditText eventName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,14 @@ public class eventActivity extends AppCompatActivity {
 
         eventListView.setAdapter(eventListAdapter);
 
+        //Creating an add event button
         Button addEventButton = (Button) findViewById(R.id.addEventButton);
         addEventButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                addEvent(eventListAdapter,"test");
+                //Button should take user input for event to add
+                eventName = (EditText) findViewById(R.id.eventName);
+                addEvent(eventListAdapter,eventName.getText().toString());
             }
         });
     }
