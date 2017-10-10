@@ -40,15 +40,15 @@ public class eventActivity extends AppCompatActivity {
         Button addEventButton = (Button) findViewById(R.id.addEventButton);
         addEventButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick() {
-                addEvent(eventListAdapter,)
+            public void onClick(View view) {
+                addEvent(eventListAdapter,"test");
             }
         });
     }
 
 
     //To be expanded with event objects, this method is used to add events to the list
-    private void addEvent(ArrayAdapter inputAdapter){
+    private void addEvent(ArrayAdapter inputAdapter,String event){
         inputAdapter.add(event);
      }
 }
